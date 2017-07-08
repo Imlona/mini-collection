@@ -1,0 +1,105 @@
+<!DOCtype html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <title>旋转风车</title>
+        <style>
+            /*找到要设置样式的标签*/
+            div{
+                width: 950px;
+                height: 475px;
+                /*设置边框
+                1.边框宽度
+                2.边框是实线
+                3.边框颜色
+                */
+                border: 0px solid orangered;
+                /*设置背景图片*/
+                /*url 图片的路径地址*/
+                background-image: url('caodi.png');
+                /*设置背景图片大小，保证背景图片能完全显示*/
+                background-size: 950px 475px;
+                /*设置外边距 即与浏览器框的距离
+                值1 上下外边距
+                值2 左右外边距  auto 让浏览器自己计算距离*/
+                margin: 50px auto ;
+                /*做相对定位的调整*/
+                /*让它的子标签img做绝对定位时，
+                是相对于 div 的边框来说的*/
+                position: relative;
+            }
+            
+            img{
+                
+                /*radius 圆角半径*/
+                border-radius: 50%;
+                /*设置动画的名称
+                设置动画转一圈持续的时间*/
+                animation-name: rotate;
+                /*animation-duration: 2s;*/
+                /*设置动画执行的速率
+                linear 匀速执行动画*/
+                animation-timing-function: linear;
+                /*设置动画重复次数
+                infinite 无限重复动画*/
+                animation-iteration-count: infinite;
+            }
+            /*找到第一个风车子标签*/
+            img:nth-child(3){
+                width: 250px;
+                height: 250px;
+                /*绝对定位*/
+                position: absolute;
+                /*可通过 top left right bottom调整位置*/
+                left: 150px;
+                top: 70px;
+                animation-duration: 4s;
+            }
+            img:nth-child(2){
+                width: 150px;
+                height: 150px;
+                /*绝对定位*/
+                position: absolute;
+                /*可通过 top left right bottom调整位置*/
+                right: 208px;
+                top: 215px;
+                animation-duration: 3s;
+            }
+            img:nth-child(1){
+                width: 100px;
+                height: 100px;
+                /*绝对定位*/
+                position: absolute;
+                /*可通过 top left right bottom调整位置*/
+                right: 410px;
+                top: 288px;
+                animation-duration: 4s;
+            }
+            
+            /*关键帧动画*/
+            
+            @keyframes rotate{
+                from{
+                /*从 0度角旋转到 360度角*/
+                transform: rotate(0deg);
+                }to{
+                /*改变为旋转至360度*/
+                transform:rotate(360deg);
+                }
+            }
+        </style>
+    </head>
+    
+    <body>
+        <!--div  用来标记网页中某一块区域的标签-->
+        <!--草地背景-->
+        <div>
+            <img src="fengche.png" alt="风车1">
+            <img src="fengche.png" alt="风车2">
+            <img src="fengche.png" alt="风车3">
+        </div>
+        
+    </body>
+    
+</html>

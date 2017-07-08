@@ -1,0 +1,108 @@
+*{
+	box-sizing: border-box;
+}
+
+#game-rect{
+	border: solid 6px lightgrey;
+	border-collapse: collapse;
+}
+
+#game-rect td{
+	width: 40px;
+	height: 40px;
+	border: solid 1px black;
+}
+
+[sta=grid-plain]
+,[sta=grid-flag]
+,[sta=grid-boom]
+,[sta=grid-ex]{
+	background-size: 100% 100%;
+}
+
+[sta=grid-plain]{
+	background-image: url(../img/blank.png);
+}
+
+[sta=grid-flag]{
+	background-image: url(../img/flag.png);
+}
+
+[sta=grid-boom]{
+	background-image: url(../img/boom_plain.png);
+}
+
+[sta=grid-ex]{
+	background-image: url(../img/boom_ex.png);
+}
+
+[sta=open-0],
+[sta=open-1],
+[sta=open-2],
+[sta=open-3],
+[sta=open-4],
+[sta=open-5],
+[sta=open-6],
+[sta=open-7],
+[sta=open-8]{
+	background-color: #BBBBBB;
+	text-align: center;
+	font-size: 20px;
+}
+
+[sta=open-1]{
+	color: red;
+}
+[sta=open-1]:before{
+	content: "1";
+}
+
+[sta=open-2]{
+	color: orange;
+}
+[sta=open-2]:before{
+	content: "2";
+}
+
+[sta=open-3]{
+	color: yellow;
+}
+[sta=open-3]:before{
+	content: "3";
+}
+
+[sta=open-4]{
+	color: green;
+}
+[sta=open-4]:before{
+	content: "4";
+}
+
+[sta=open-5]{
+	color: cyan;
+}
+[sta=open-5]:before{
+	content: "5";
+}
+
+[sta=open-6]{
+	color: blue;
+}
+[sta=open-6]:before{
+	content: "6";
+}
+
+[sta=open-7]{
+	color: purple;
+}
+[sta=open-7]:before{
+	content: "7";
+}
+
+[sta=open-8]{
+	color: pink;
+}
+[sta=open-8]:before{
+	content: "8";
+}
+

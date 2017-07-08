@@ -1,0 +1,227 @@
+<!DOCtype html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <title>会说话的汤姆猫</title>
+        <!--通过css样式来调整图片大小-->
+        <style>
+            div{
+                width: 320px;
+                height: 512px;
+                /*设置外边距，让div居中*/
+                margin: 0px auto;
+                /*设置相对定位*/
+                position: relative;
+            }
+            img{
+                width: 320px;
+                height: 512px;
+            }
+            /*通过唯一的ID找到这个ID对应的标签
+            设置样式  ‘#+ID名’ */
+            #head{
+                width: 190px;
+                height: 170px;
+                /*background-color:  orangered;*/
+                /*设置绝对定位*/
+                position: absolute;
+                top: 86px;
+                left: 65px;
+            }
+            #stomach{
+                width: 120px;
+                height: 160px;
+                /*background-color:  orangered;*/
+                /*设置绝对定位*/
+                position: absolute;
+                top: 290px;
+                left: 100px;
+            }
+            #foot_left{
+                width: 50px;
+                height: 50px;
+                /*background-color: orangered;*/
+                position: absolute;
+                top: 445px;
+                left: 160px;
+            }
+            #foot_right{
+                width: 50px;
+                height: 50px;
+                /*background-color: orangered;*/
+                position: absolute;
+                top: 445px;
+                left: 105px;
+            }
+            #tail{
+                width: 40px;
+                height: 85px;
+                /*background-color: orangered;*/
+                position: absolute;
+                top: 327px;
+                left: 210px;
+            }
+            #drink{
+                width: 60px;
+                height: 60px;
+                background-image: url('images/buttons/drink.png');
+                background-size: 60px 60px;
+                position: absolute;
+                top: 250px;
+                left: 5px;
+            }
+            #cymbal{
+                width: 60px;
+                height: 60px;
+                background-image: url('images/buttons/cymbal.png');
+                background-size: 60px 60px;
+                position: absolute;
+                top: 310px;
+                left: 5px;
+            }
+            #eat{
+                width: 60px;
+                height: 60px;
+                background-image: url('images/buttons/eat.png');
+                background-size: 60px 60px;
+                position: absolute;
+                top: 370px;
+                left: 5px;
+            }
+            #fart{
+                width: 60px;
+                height: 60px;
+                background-image: url('images/buttons/fart.png');
+                background-size: 60px 60px;
+                position: absolute;
+                top: 250px;
+                right: 5px;
+            }
+            #pie{
+                width: 60px;
+                height: 60px;
+                background-image: url('images/buttons/pie.png');
+                background-size: 60px 60px;
+                position: absolute;
+                top: 310px;
+                right: 5px;
+            }
+            #scratch{
+                width: 60px;
+                height: 60px;
+                background-image: url('images/buttons/scratch.png');
+                background-size: 60px 60px;
+                position: absolute;
+                top: 370px;
+                right: 5px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <!--audio 播放音频文件-->
+        <audio id="player"></audio>
+        
+        <!--div 标记网页中某一块区域-->        
+        <div>
+            <img id="tom" src="images/knockout/knockout_00.jpg" alt="汤姆猫">
+            <!--标记汤姆猫头部-->
+            <!--当单机的时候，执行 angry函数-->
+            <div id="head" onclick="knockout(18,'knockout',81)"></div>
+            <div id="stomach" onclick="knockout(06,'stomach',34)"></div>
+            
+            <div id="foot_left" onclick="knockout(04,'foot_left',30)"></div>
+            <div id="foot_right" onclick="knockout(04,'foot_right',30)"></div>
+            <div id="tail" onclick="knockout(06,'angry',26)"></div>
+            
+            <div id="drink" onclick="knockout(22,'drink',81)"></div>
+            <div id="cymbal" onclick="knockout(02,'cymbal',13)"></div>
+            <div id="eat" onclick="knockout(09,'eat',40)"></div>
+            <div id="fart" onclick="knockout(05,'fart',28)"></div>
+            <div id="pie" onclick="knockout(10,'pie',24)"></div>
+            <div id="scratch" onclick="knockout(20,'scratch',56)"></div>
+            
+                       
+        </div>
+        
+        <!--标记js代码-->
+        <script>
+            // 先声明一个变量，记录Tom猫又没有在执行动画
+            var isAnimating = false;
+            
+            // 一个做生气效果的函数
+            // 播放音频的位置start、图片的路径name、图片总张数total
+            
+            function knockout(start,name,total){
+                // 如果 isAniamting的值为 True
+                if (isAnimating == true){
+                    
+                    // return 返回，强制结束函数的执行
+                    return;
+                }
+                
+                // g更改isAnismting的值为 true
+                isAnimating = true ;
+                
+                // console.log('头被点了。。。')
+                // 通过ID找到id对应的标签
+                // document 整个html文档
+                var img=document.getElementById('tom')
+                // t通过player的id找到对应的标签
+                var player=document.getElementById('player')
+                
+                
+                
+                
+                // 专门用来切换图片的函数
+                // 定义一个变量 ，用来记录图片切换到第几张
+                var count=0;
+                function changeImage(){
+                    // 如果播放到第 6 张图片时，播放声音
+                    if (count == start){
+                        // 执行播放
+                        player.src='images/sounds/'+ name +'.m4a';
+                        player.play();
+                    }
+                    
+                    //判断count值是否小于 10
+                    if(count <10){
+                        // 在 count 前加 0
+                        count= '0' + count;
+                        
+                    } 
+                    
+                    
+                    img.src='images/' + name + '/' + name + '_' + count + '.jpg'
+                    // count++ 等同于count=count+1
+                    count ++;
+                    // 判断count是否超出图片范围
+                    if(count < total){
+                        
+                    // 间隔 0.1s 后，再次执行 changeImage函数
+                    // 1.要执行的函数名称
+                    // 2.间隔的时间 毫秒的单位
+                    setTimeout(changeImage,90); 
+                    
+                    } else{
+                        // 动画结束，更改isAnimating的值为false
+                        isAnimating = false;
+                    }
+                    
+                                    
+                }
+                // 先手动调用一次changeImage
+                changeImage();
+                
+            }
+            
+            
+        </script>
+            
+    </body>
+    
+    
+    
+    
+</html>

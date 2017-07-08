@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>钢琴</title>
+	<style>
+		html{
+			height: 100%;
+		}
+		body{
+			height: 100%;
+/*			 设置背景径向渐变*/
+			background: radial-gradient(#666,#000);
+/*			设置元素为弹性元素*/
+			display: flex;
+			
+			justify-content:center;
+			
+			align-items:center;
+			
+		}
+		main{
+			width: 800px;
+			height: 400px;
+			
+			background-image: url(keys.png);
+			background-size: 100% 100%;
+			border: 18px solid #333;
+			
+			box-shadow: 0px 0px 30px white;
+			
+			border-top-width: 35px;
+			border-bottom-width: 10px;
+			box-sizing: border-box;
+/*			弹性布局*/
+			display: flex;
+		}
+		div{
+/*			border: 1px solid orangered;*/
+			height: 100%;
+/*			占几分之一*/
+			flex-grow: 1;
+		}
+		div:active{
+/*			linear-gradient 线性渐变*/
+			background: linear-gradient(white,lightgray);			
+		}
+		.keyAffect{
+			background: linear-gradient(rgba(0, 0, 0, 0),rgba(150, 150, 150, 0.5));
+		}
+		
+	</style>
+	
+</head>
+<body>
+	
+	<main>
+		
+		<audio src="notes/1.oga"></audio>
+		<audio src="notes/2.oga"></audio>
+		<audio src="notes/3.oga"></audio>
+		<audio src="notes/4.oga"></audio>
+		<audio src="notes/5.oga"></audio>
+		<audio src="notes/6.oga"></audio>
+		<audio src="notes/7.oga"></audio>
+		<audio src="notes/8.oga"></audio>
+		<audio src="notes/9.oga"></audio>
+		
+		<div onclick="play(0)"></div>
+		<div onclick="play(1)"></div>
+		<div onclick="play(2)"></div>
+		<div onclick="play(3)"></div>
+		<div onclick="play(4)"></div>
+		<div onclick="play(5)"></div>
+		<div onclick="play(6)"></div>
+		<div onclick="play(7)"></div>
+		<div onclick="play(8)"></div>
+			
+		<script>
+//			query 查询 selector 选择器  all 所有的
+//			找到所有的audio标签
+			var audios=document.querySelectorAll('audio');
+//			找到所有的 div 标签			
+			var divs=document.querySelectorAll('div');
+			
+			function play(index){
+//				取出对应的声音
+				var audio = audios[index];
+				
+				audio.load();
+				
+				
+				audio.play();
+			}
+			
+			var code = 0;
+			
+			
+			window.onkeydown = function(event)
+		{
+			console.log(event.keyCode);
+			
+			if (code != event.keyCode - 49) {
+				
+
+			if(49 <= event.keyCode && event.keyCode <= 57)
+			{
+				code = event.keyCode - 49;
+				
+				divs[code].classList.add('keyAffect');
+				play(code);
+			}
+		}
+	}	
+		window.onkeyup = function(){
+			code = 100;
+			for (var index = 0 ; index < divs.length ; index++)
+			{
+				divs[index].classList.remove('keyAffect');
+				
+			}
+		}
+		  
+		</script>
+	</main>
+	
+</body>
+</html>

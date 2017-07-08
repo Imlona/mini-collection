@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>个人主页</title>
+        <meta charset="utf-8">
+        <style>
+            body{
+                margin: 0;
+                margin-bottom: 50px;
+                /*position: absolute;*/
+                background-image: url(back.jpg);
+                background-size: 100% 100%;
+            }
+            
+            nav{
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 65px;
+                position: fixed;
+                background-color: #ff9999;
+                z-index: 100;           
+            }
+            #inner{
+                height: 50px;
+                width: 1000px;
+                margin: 0 auto;
+            }
+            ul li{
+                list-style: none;
+                float: left;
+                margin-left: 60px;
+            }
+            #inner a{
+                text-decoration: none;
+                font-size: 20px;
+            }
+            #inner a:hover{
+                color: white;
+            }
+            #banner{
+                margin-top: 50px;
+                height: 400px;
+                background-image: url(bg.jpg);
+                background-size: 100% 100%;
+            }
+            #contain{
+                width: 1000px;
+                margin: 0 auto;
+            }
+            .pic{
+                width: 100%;
+                border-radius: 20px;
+                position: relative;
+            }
+            .same{
+                text-align: center;
+                color: #ff9999;
+            }
+            p.text{
+                text-indent: 2em;
+                line-height: 30px;
+                font-family: 宋体;
+                font-weight: normal;
+            }
+            .box{
+                font-size: 25px;
+                
+            }
+            .alike{
+                font-size: 20px;
+                font-family: 黑体;
+                font-weight: bold;
+            }
+            p#bottom.under{
+                text-align: center;
+            }
+            main img{
+                top: 120px;
+                position: relative;
+                float: right;
+                height: 200px;
+                border: 2px solid #ff9999;
+                border-radius: 50%;
+            }
+            #class-bg{
+                height: 760px;
+                background-image: url(classmate.jpg);
+                position: relative;
+
+            }
+            .cm{
+                position: absolute;
+                border: 1px solid white;
+                border-radius: 50%;
+            }
+            .cm:nth-child(1){
+                width: 230px;
+                height: 230px;
+                left: 20px;
+                top: 20px;
+            }
+            .cm:nth-child(2){
+                width: 200px;
+                height: 200px;
+                right: 20px;
+                top: 20px;
+            }
+            .cm:nth-child(3){
+                width: 250px;
+                height: 250px;
+                left: 350px;
+                bottom: 20px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <nav id="header">
+            <div id="inner">
+                <ul>
+                    <li><a href="#index">首页</a></li>
+                    <li><a href="#intro">我的简介</a></li>
+                    <li><a href="#college">我的大学</a></li>
+                    <li><a href="#classmate">我的同学</a></li>
+                    <li><a href="#hometown">我的家乡</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="banner"></div>
+        <div id="contain">      <br> <br>
+            
+            <div>
+                <h1 class="same" id="index">夕林浅娜的个人主页</h1>
+                <h2 class="same">欢迎来到我的个人主页（@ ^_^ @）</h2>
+                <main>
+                    <img src="head.jpg" alt="图片加载失败">
+                </main>
+            </div>      <br> <br>
+
+            <div>
+                <h2 id="intro">我的简介</h2>  <br>  
+                <p class="alike">姓名：高罗拿</p>
+                <p class="alike">性别：女</p>
+                <p class="alike">星座：处女座</p>
+                <p class="alike">梦想：吃遍天下美食</p>
+                <p class="alike">爱好：画画、动漫、音乐、小说</p> 
+                <br> <br>
+            </div>
+
+            <hr>    <br> <br>
+
+            <div>
+                <h3 class="box" id="college">我的大学</h3>  <br>
+                <p class="text">郑州大学西亚斯国际学院是由美国西亚斯集团公司投资，与郑州大学合作，美国堪萨斯州富特海斯州立大学（Fort Hays State University，英文缩写FHSU)协办的中外合作办学机构，是河南省首家被国务院学位委员会批准可以实施境外学士学位教育合作项目的全日制本科院校，也是首批被中国教育部中外合作办学评估合格的高校。</p>
+                <p class="text">学校位于中国人文始祖黄帝故里河南郑州新郑市，占地面积2200余亩，已建有90余万平方米的风格各异的教学馆舍。欧式现代园林与中国古典园林相结合的校园环境，欧式风格和中国风格相结合的教学楼群，完备的体育、音乐、美术教学场馆设施，既体现了西亚斯中西合璧的办学理念，也彰显了国际化育人环境的时空意识和德、智、体、音、美全面发展的育人思想。置身校园，如穿越于东西方建筑与园林文化的倾情对话之中，中西、古今于一瞬间凝固为立体音乐。青山宁静益智，绿水幽雅润心，给学生创造了浓郁的国际化成长氛围。</p>
+                <img class="pic" src="sias.png" alt="图片加载失败"> <br> <br>
+            </div>    
+
+            <hr> <br> <br>
+
+            <div>   
+                <h3 class="box" id="classmate">我的同学</h3>    <br>
+                <p class="text">我的同学呆萌可爱。。。。。。她们都有着让人捧腹偷笑的外号。她们的爱好迥异不同。<br>&emsp;&emsp;鸟人大赛起源于希腊神话，神话中伊卡洛斯借助自制的“翅膀”飞行天际。为了纪念这位“飞行先驱”，每年举办“鸟人大赛”已成为世界上许多地方的传统。别开生面的“鸟人”大赛是著名旅游节——澳大利亚蒙巴节的组成部分，自2010年起就是郑州大学西亚斯国际学院家长访校日活动期间的重头戏，是河南省内高校中具有鲜明特色的校园文化活动。每年鸟人大赛都很有意思，从每个人自制的稀奇古怪的衣服到形态各异的入水姿势，能看到西亚斯人有趣的一面，有机会就来参加吧。</p>
+                <div class="pic" id="class-bg">
+                    <img class="cm" src="luyao.jpg" alt="图片加载失败">
+                    <img class="cm" src="mengya.jpg" alt="图片加载失败">
+                    <img class="cm" src="liushuang.jpg" alt="图片加载失败"> 
+                </div>  <br> <br>
+            </div> 
+
+            <hr>    <br> 
+
+            <div>
+                <h3 class="box" id="hometown">我的家乡</h3> <br>
+                <p class="text">嵩山，古称“外方”，夏商时称“崇高”、“崇山”，西周时成称为 “岳山”，以嵩山为中央左岱（泰山）右华（华山），定嵩山为中岳，始称“中岳嵩山”。嵩山是道教五岳圣地之一，旧时汉族民间广泛崇奉的神祇，即中岳嵩山君神。古称中岳，为中国著名的五岳之一。位于河南省西部，属伏牛山系，地处登封市西北面，是五岳的中岳。嵩山是中华文明的重要发源地，也是中国名胜风景区。2004年2月，嵩山被联合国教科文组织列入世界地质公园。</p>
+                <img class="pic" src="hometown.jpg" alt="图片加载失败">   <br> <br>
+            </div>   
+
+            <hr>    <br> <br>
+            
+            <p id="bottom" class="under">版权所有 &#X3000;© 2017&#X3000; GLN&#X3000;联系我</p>
+        </div>
+    </body>
+</html>

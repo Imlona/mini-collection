@@ -1,0 +1,143 @@
+<html>
+    <head>
+        <title>打地鼠</title>
+        <meta charset="utf-8">
+        <!--引入css 文件-->
+        <link rel="stylesheet" href="index.css">
+    </head>
+
+    <body>
+        <!--autoplay loop  播放音乐  循环播放-->
+        <audio src="audio/music.mp3" autoplay loop></audio>
+
+        <audio src="audio/dazhong.wav" id="yinxiao"></audio>
+
+        <div id="score">得分：00</div>
+        
+        <table>
+            <tr>
+                <td><img src="image/mouse.png" alt=""></td>
+                <td><img src="image/mouse.png" alt=""></td>
+                <td><img src="image/mouse.png" alt=""></td>
+                <td><img src="image/mouse.png" alt=""></td>
+            </tr>
+            <tr>
+                <td><img src="image/mouse.png" alt=""></td>
+                <td><img src="image/mouse.png" alt=""></td>
+                <td><img src="image/mouse.png" alt=""></td>
+                <td><img src="image/mouse.png" alt=""></td>
+            </tr>
+            <tr>
+                <td><img src="image/mouse.png" alt=""></td>
+                <td><img src="image/mouse.png" alt=""></td>
+                <td><img src="image/mouse.png" alt=""></td>
+                <td><img src="image/mouse.png" alt=""></td>
+            </tr>
+            <tr>
+                <td><img src="image/mouse.png" alt=""></td>
+                <td><img src="image/mouse.png" alt=""></td>
+                <td><img src="image/mouse.png" alt=""></td>
+                <td><img src="image/mouse.png" alt=""></td>
+            </tr>
+        </table>
+        
+    </body>
+
+
+    <script>
+
+
+        // 获得所有的 img 标签
+        var mouses = document.getElementsByTagName('img');
+
+        // 定义一个函数，用于显示一只老鼠
+        function showOne(){
+
+            // 生成一个 0 到 1 之间的随机数
+            var n = Math.random();
+            // n的取值范围 0 到 16
+            n = n*16;
+            // 对 n 取整，  向下取整 
+            n = Math.floor(n);
+
+            mouses[n].classList.add('show');
+
+            mouses.touch = true;
+
+
+            function hide(){
+                mouses[n].classList.remove('show');
+            }
+            // 1.5秒后调用 hide 函数，让老鼠隐藏
+            setTimeout(hide,3000);
+        }
+
+        // 延迟执行：一秒后，调用showOne
+        // setTimeout(showOne,1000);
+
+        function showSome(){
+            showOne();
+            showOne();
+            showOne();
+        }
+
+        // 每隔一秒出三个老鼠
+        setInterval(showSome,1000);
+
+        // 获取打中地鼠的的音效
+        var player = document.getElementById('yinxiao');
+
+        // 记录得分的变量
+        var score = 0 ;
+
+        var board = document.getElementById('score');
+
+
+        // 为每一个 img 添加点击事件监听
+        for(var i = 0; i<mouses.length;i++){
+
+            function md(e){
+                e.target.classList.remove('show');
+
+                // 播放打中音效
+                player.load();
+                player.play();
+
+
+                if(e.target.touch){
+                    // 得分加10
+                    score = score + 10 ;
+                    board.textContent = '得分：'+ score;
+                    e.target.touch = flase ;
+                }
+                
+                // 得分加10
+                score = score + 10 ;
+                board.textContent = '得分：'+ score;
+            }
+
+            mouses[i].onclick = md ;
+
+        }
+
+
+        // 当鼠标点下时, 鼠标锤子会下去
+        document.body.onmousedown = function(e){
+            document.body.style.cursor = 'url(image/cursor-down.png),auto' ;
+
+        }
+        // 鼠标变回原样
+        document.body.onmouseup = function(e){
+            document.body.style.cursor = 'url(image/cursor.png),auto' ;
+
+        }
+
+
+        document.body.ondrop = function(e){
+            e.stopPropagation();
+            e.preventDefault();
+        }
+
+    </script>
+
+</html>

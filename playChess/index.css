@@ -1,0 +1,111 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    text-align: center;
+}
+
+#board1{
+    border: 1px solid black;
+    /*边框线折成一条线*/
+    border-collapse: collapse;
+    width: 720px; 
+}
+
+#board1 td{
+    border: 1px solid black;     
+}
+
+td{
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    vertical-align: center;
+}
+
+#outline{
+    margin-top: 50px;
+    border: 4px solid black;
+    /*内间距*/
+    padding: 10px;
+    /*布局方式：行内块元素*/
+    /*inline-block 可以用文本居中方式 text-align */
+    display: inline-block;
+    
+    background-image: url(bg.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    
+}
+
+#board2{
+    margin-top: 45px;
+    /*border: 1px solid red;*/
+    border-collapse: collapse;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    width: 760px;
+
+    table-layout: fixed;
+
+}
+
+#board2 td{
+    /*border: 1px solid red;*/
+}
+
+[chess = black]:before{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background-color: black;
+    content: '';
+    border-radius: 50%;
+}
+
+
+[chess = white]:before{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    content: '';
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+#control{
+    position: absolute;
+    width: 100%;
+    padding: 0 200px;
+    top: 10px;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+button{
+    border: none;
+    background-color: coral;
+    width: 60px;
+    height: 30px;
+    border-radius: 10px;
+    /*鼠标放上去会变成手*/
+    cursor: pointer;
+
+}
+
+#round{
+    margin: 0;
+    font-size: 25px;
+}
+

@@ -1,0 +1,163 @@
+.icons-pic{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    background-image: url(icon.png);    
+}
+#myinfo{
+    background-size: 600% 1000%;
+    background-position: -500% -100%;
+}
+#myschool{
+    background-size: 600% 1000%;
+    background-position: -200% -400%;
+}
+#mycm{
+    background-size: 600% 1000%;
+    background-position: -500% -600%;
+}
+#myhome{
+    background-size: 600% 1000%;
+    background-position: -100% calc(-700% - 10px);
+}
+#mylist{
+    background-size: 600% 1000%;
+    background-position: -15px calc(-800% - 5px);
+}
+
+
+
+
+
+
+
+
+
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding-top: 65px;
+    margin-bottom: 50px;
+    /*position: absolute;*/
+    background-image: url(back.jpg);
+    background-size: 100% 100%;
+}
+
+nav{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 65px;
+    position: fixed;
+    background-color: #ff9999;
+    z-index: 100;           
+}
+/*#inner{
+    width: 1200px;
+    margin: 0 auto;
+}*/
+ul{
+    width: 1200px;
+    margin: 0 auto;
+}
+ul li{
+    list-style: none;
+    float: left;
+    width: 120px;
+    text-align: center;
+    /*padding: 0 16px;*/
+    height: 65px;
+    line-height: 65px;
+}
+li:hover{
+    background-color: #ffcc99;
+}
+.clearfix{
+    display: block;
+    content: '';
+    clear: both;
+    zoom: 1;
+}
+a{
+    text-decoration: none;
+    font-size: 20px;
+}
+a:hover{
+    color: white;
+}
+#banner{
+    /*margin-top: 50px;*/
+    height: 400px;
+    background-image: url(bg.jpg);
+    background-size: 100% 100%;
+}
+#contain{
+    width: 1000px;
+    margin: 0 auto;
+}
+.pic{
+    width: 100%;
+    border-radius: 20px;
+    position: relative;
+}
+.same{
+    text-align: center;
+    color: #ff9999;
+}
+p.text{
+    text-indent: 2em;
+    line-height: 30px;
+    font-family: 宋体;
+    font-weight: normal;
+}
+.box{
+    font-size: 25px;
+    
+}
+.alike{
+    font-size: 20px;
+    font-family: 黑体;
+    font-weight: bold;
+}
+p#bottom.under{
+    text-align: center;
+}
+main img{
+    top: 120px;
+    position: relative;
+    float: right;
+    height: 200px;
+    border: 2px solid #ff9999;
+    border-radius: 50%;
+}
+#class-bg{
+    height: 760px;
+    background-image: url(classmate.jpg);
+    position: relative;
+
+}
+.cm{
+    position: absolute;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+.cm:nth-child(1){
+    width: 230px;
+    height: 230px;
+    left: 20px;
+    top: 20px;
+}
+.cm:nth-child(2){
+    width: 200px;
+    height: 200px;
+    right: 20px;
+    top: 20px;
+}
+.cm:nth-child(3){
+    width: 250px;
+    height: 250px;
+    left: 350px;
+    bottom: 20px;
+}

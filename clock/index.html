@@ -1,0 +1,113 @@
+<html>
+    <head>
+        <title>电子表</title>
+        <meta charset="utf-8">
+
+        <style>
+            
+            body{
+                background-color: black;
+                /*设置文本对齐方式（居中，居左，居右）*/
+                text-align: center;
+            }
+
+            h1{
+                /*设置文本颜色*/
+                color: #FF99FF;
+                /*设置字体大小*/
+                font-size: 160px;
+                /*设置字体粗细，范围100-700*/
+                font-weight: normal;
+                /*设置外间距*/
+                margin: 0;
+                /*上外间距*/
+                margin-top: 150px;
+            }
+
+            p{
+                color: #99FFCC;
+                margin: 0;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+        <h1 id="time">14:22:34</h1>
+        <p id="date">2017年6月28日 星期三</p>
+    </body>
+
+
+    <script>
+        //通过id属性，获得h1标签。
+        var t = document.getElementById("time");
+
+        var d = document.getElementById("date");
+
+        //定时器函数，每隔一段时间就执行一次代码。
+        setInterval(function(){
+            
+            //获得当前时间，得到是一个日期对象。
+            var now = new Date();
+            
+            //从当前时间中抽出小时。
+            var h = now.getHours();
+            //抽出分钟
+            var m = now.getMinutes();
+            //抽出秒数
+            var s = now.getSeconds();
+            s = s<10?"0"+s:s;
+            //将时分秒进行拼接，然后赋值给h1标签。
+            t.textContent = h+":"+m+":"+s;
+
+            //-----------------------------------------------
+
+            //提取年份
+            var y = now.getFullYear();
+            //提取月份
+            var mon = now.getMonth()+1;
+            //提取日期
+            var da = now.getDate();
+            //提取星期几
+            var week = now.getDay();
+            week = numberToZh(week);
+
+            d.textContent = y+"年"+mon+"月"+da+"日，星期"+week;
+
+        },1000);
+
+
+        function numberToZh(n){
+            switch (n) {
+                case 0:
+                    return "日"
+                    break;
+                case 1:
+                    return "一"
+                    break;
+                case 2:
+                    return "二"
+                    break;
+                case 3:
+                    return "三"
+                    break;
+                case 4:
+                    return "四"
+                    break;
+                case 5:
+                    return "五"
+                    break;
+                case 6:
+                    return "六"
+                    break;
+                default:
+                    break;
+            }
+        }
+        
+
+    </script>
+
+
+</html>

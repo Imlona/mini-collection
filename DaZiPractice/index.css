@@ -1,0 +1,23 @@
+body{
+    background-color: black;
+    text-align: center;
+    overflow: hidden;
+}
+
+h1{
+    color: white;
+    font-size: 300px;
+    margin: 0;
+
+    /*设置文本阴影,前两个参数是阴影偏移量，第三个参数是阴影模糊
+    程度，最后一个是阴影颜色*/
+    text-shadow: 0px 0px 400px white;
+}
+
+p{
+    color: #eeeeee;
+}
+
+#letter{
+    animation-duration: 500ms;
+}

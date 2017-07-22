@@ -1,143 +1,222 @@
-<html>
-    <head>
-        <title>打地鼠</title>
-        <meta charset="utf-8">
-        <!--引入css 文件-->
-        <link rel="stylesheet" href="index.css">
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>打地鼠</title>
+    <style>
+        body{
+            margin: 0;
+            background-image: url(image/bg.jpg); 
+            /*用户点击老鼠，不会选中图片*/
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            cursor: url(image/cursor.png),auto;
+        }
+        table{
+            margin: 0 auto;
+            text-align: center;
+            /*border: 2px solid orangered;*/
+            border-collapse: collapse;
+        }
+        td{
+            width: 200px;
+            height: 180px;
+            /*border: 1px solid orange;*/
+            background-image: url(image/hole.png);
+            background-repeat: no-repeat;
+            background-size: 150px 50px;
+            background-position: bottom;
+        }
+        img{
+            width: 105px;
+            height: 95px;
+            position: relative;
+            top: 30px;
 
-    <body>
-        <!--autoplay loop  播放音乐  循环播放-->
-        <audio src="audio/music.mp3" autoplay loop></audio>
+            transition: all 0.5s linear;
+            transform: scale(1,0);
+            transform-origin: 50% 100%;
+        }
+        .show{
+            transform: scale(1,1);
+        }
+        span,button{
+            /*position: absolute;*/
+            text-align: center;
+            display: inline-block;
+            width: 250px;
+            height: 80px;
+            background-color: rgba(0, 0, 0, 0.2);
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 80px;
+            margin: 10px;
+            margin-left: 40px;
+            font-family: 楷体;
+            border-top-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            border: none;
+        }
+        button{
+            float: right;
+            cursor: pointer;
+            margin-right: 40px;
+        }
+    </style>
+</head>
+<body>
+    <audio id="yinxiao" src="audio/dazhong.wav"></audio>
 
-        <audio src="audio/dazhong.wav" id="yinxiao"></audio>
+    <audio src="audio/music.mp3" autoplay loop></audio>
 
-        <div id="score">得分：00</div>
-        
-        <table>
-            <tr>
-                <td><img src="image/mouse.png" alt=""></td>
-                <td><img src="image/mouse.png" alt=""></td>
-                <td><img src="image/mouse.png" alt=""></td>
-                <td><img src="image/mouse.png" alt=""></td>
-            </tr>
-            <tr>
-                <td><img src="image/mouse.png" alt=""></td>
-                <td><img src="image/mouse.png" alt=""></td>
-                <td><img src="image/mouse.png" alt=""></td>
-                <td><img src="image/mouse.png" alt=""></td>
-            </tr>
-            <tr>
-                <td><img src="image/mouse.png" alt=""></td>
-                <td><img src="image/mouse.png" alt=""></td>
-                <td><img src="image/mouse.png" alt=""></td>
-                <td><img src="image/mouse.png" alt=""></td>
-            </tr>
-            <tr>
-                <td><img src="image/mouse.png" alt=""></td>
-                <td><img src="image/mouse.png" alt=""></td>
-                <td><img src="image/mouse.png" alt=""></td>
-                <td><img src="image/mouse.png" alt=""></td>
-            </tr>
-        </table>
-        
-    </body>
-
+    <span id="score">得分: 0</span>   
+    <button onclick="restart()">再来一次</button>
+    <table>
+        <tr>
+            <td>
+                <img src="image/mouse.png"></img>
+            </td>
+            <td>
+                <img src="image/mouse.png"></img>
+            </td>
+            <td>
+                <img src="image/mouse.png"></img>
+            </td>
+            <td>
+                <img src="image/mouse.png"></img>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="image/mouse.png"></img>
+            </td>
+            <td>
+                <img src="image/mouse.png"></img>
+            </td>
+            <td>
+                <img src="image/mouse.png"></img>
+            </td>
+            <td>
+                <img src="image/mouse.png"></img>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="image/mouse.png"></img>
+            </td>
+            <td>
+                <img src="image/mouse.png"></img>
+            </td>
+            <td>
+                <img src="image/mouse.png"></img>
+            </td>
+            <td>
+                <img src="image/mouse.png"></img>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="image/mouse.png"></img>
+            </td>
+            <td>
+                <img src="image/mouse.png"></img>
+            </td>
+            <td>
+                <img src="image/mouse.png"></img>
+            </td>
+            <td>
+                <img src="image/mouse.png"></img>
+            </td>
+        </tr>
+    </table>
 
     <script>
+        var mouses = document.getElementsByTagName("img");
+
+        function restart(){
+            window.location.reload();
+        }
 
 
-        // 获得所有的 img 标签
-        var mouses = document.getElementsByTagName('img');
-
-        // 定义一个函数，用于显示一只老鼠
         function showOne(){
-
-            // 生成一个 0 到 1 之间的随机数
             var n = Math.random();
-            // n的取值范围 0 到 16
             n = n*16;
-            // 对 n 取整，  向下取整 
             n = Math.floor(n);
 
-            mouses[n].classList.add('show');
-
-            mouses.touch = true;
-
-
+            mouses[n].classList.add("show");
+            mouses[n].touch = true;
+            
             function hide(){
-                mouses[n].classList.remove('show');
+                mouses[n].classList.remove("show");
             }
-            // 1.5秒后调用 hide 函数，让老鼠隐藏
-            setTimeout(hide,3000);
+
+            setTimeout(hide,2500);
         }
-
-        // 延迟执行：一秒后，调用showOne
-        // setTimeout(showOne,1000);
-
         function showSome(){
-            showOne();
-            showOne();
-            showOne();
+            setTimeout(showOne(),1000);
+            setTimeout(showOne(),2000);
+            setTimeout(showOne(),3000);
+            setTimeout(showOne(),4000);
+            setTimeout(showOne(),1500);          
         }
+        
+        setInterval(showSome,2450);
 
-        // 每隔一秒出三个老鼠
-        setInterval(showSome,1000);
+        var player = document.getElementById("yinxiao");
 
-        // 获取打中地鼠的的音效
-        var player = document.getElementById('yinxiao');
+        var grade = document.getElementById("score");
+        var score = 0;
 
-        // 记录得分的变量
-        var score = 0 ;
-
-        var board = document.getElementById('score');
-
-
-        // 为每一个 img 添加点击事件监听
-        for(var i = 0; i<mouses.length;i++){
-
-            function md(e){
-                e.target.classList.remove('show');
-
+        for(var i = 0;i<mouses.length;i++){
+            function mouseDown(e){
+                e.target.classList.remove("show");
                 // 播放打中音效
                 player.load();
                 player.play();
 
-
                 if(e.target.touch){
-                    // 得分加10
-                    score = score + 10 ;
-                    board.textContent = '得分：'+ score;
-                    e.target.touch = flase ;
+                    score = score+10;
+                    grade.textContent = "得分: "+score;
+                    e.target.touch =false;
                 }
-                
-                // 得分加10
-                score = score + 10 ;
-                board.textContent = '得分：'+ score;
             }
 
-            mouses[i].onclick = md ;
-
+            mouses[i].onclick = mouseDown;
         }
 
-
-        // 当鼠标点下时, 鼠标锤子会下去
-        document.body.onmousedown = function(e){
-            document.body.style.cursor = 'url(image/cursor-down.png),auto' ;
-
-        }
-        // 鼠标变回原样
         document.body.onmouseup = function(e){
-            document.body.style.cursor = 'url(image/cursor.png),auto' ;
-
+            document.body.style.cursor = "url(image/cursor.png),auto";
         }
 
+        document.body.onmousedown = function(e){
+            document.body.style.cursor = "url(image/cursor-down.png),auto";
+        }
 
         document.body.ondrop = function(e){
+            // 停止增殖，拖拽图片不会再出现新页面
             e.stopPropagation();
+            // 阻止默认值
             e.preventDefault();
         }
 
+        setTimeout(function(){
+            alert("一分钟时间到！您的得分是 "+score);
+        },1000*60);
+    
     </script>
 
+
+
+
+
+
+
+
+
+
+
+
+</body>
 </html>
